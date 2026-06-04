@@ -8,7 +8,7 @@ This repository maps a CIS Benchmark to CIPP's standards engine so you can **rep
 
 | Benchmark | Templates | Coverage |
 |---|---|---|
-| CIS Microsoft 365 Foundations **v7.0.0** | `CIS-M365-Foundations-v7.0.0-L1.json`, `...-L2.json` | 90 of 160 controls map to a CIPP standard |
+| CIS Microsoft 365 Foundations **v7.0.0** | `StandardsTemplateV2/` (L1 and L2) | 90 of 160 controls map to a CIPP standard |
 
 ## CIS Microsoft 365 Foundations v7.0.0
 
@@ -16,10 +16,12 @@ Two importable CIPP standard templates, split by CIS profile **Level 1** and **L
 
 | File | Contents |
 |---|---|
-| `CIS-M365-Foundations-v7.0.0-L1.json` | Level 1 controls — 49 standards |
-| `CIS-M365-Foundations-v7.0.0-L2.json` | Level 2 controls — 30 standards |
+| `StandardsTemplateV2/CIS_Microsoft_365_Foundations_v7.0.0__L1_Report.json` | Level 1 standards template — 49 standards |
+| `StandardsTemplateV2/CIS_Microsoft_365_Foundations_v7.0.0__L2_Report.json` | Level 2 standards template — 30 standards |
 | `CIS-M365-Foundations-v7.0.0-Coverage-Map.md` / `.csv` | All 160 controls mapped to their CIPP standard and status |
 | `CIS-M365-Foundations-v7.0.0-Manual-Checklist.md` | The controls the templates do not cover, with where to handle each |
+
+The two template files live under `StandardsTemplateV2/` and are wrapped in CIPP's community-repository format (a `PartitionKey` of `StandardsTemplateV2` plus the template serialized into the `JSON` field). That folder name and wrapper are how CIPP recognizes them as Standards templates. Do not move them to the repo root or rename the folder, or CIPP will fail to classify them on sync.
 
 ### Coverage at a glance (160 controls)
 
@@ -32,12 +34,18 @@ Two importable CIPP standard templates, split by CIS profile **Level 1** and **L
 
 About two-thirds of the benchmark maps to a ready CIPP standard. The remainder is either something CIPP cannot automate today (PIM, emergency access accounts, SSPR notifications, on-prem AD) or a newer v7.0.0 area without a CIPP standard yet, most notably the entire **Microsoft Fabric** section (9.1.x), DLP (3.2.x), and sensitivity labels (3.3.1).
 
-### How to import
+### How to use (CIPP Community Repository)
 
-1. In CIPP, open **Tenant Administration > Standards**.
-2. Choose **Add Standard / Templates** and import / upload the JSON (or paste it).
-3. Import `...-L1.json` and `...-L2.json` as two separate templates.
-4. Review, then apply to a tenant or tenant group, or run manually for a one-off report.
+This repo is built to be consumed as a CIPP Community Repository.
+
+1. In CIPP, open **Settings > Community Repositories** and add this repo (`appliedi/cipp-cis-templates`).
+2. Sync it. CIPP reads the `StandardsTemplateV2/` folder and imports both files as **Standards templates** (not Intune templates).
+3. The two templates appear under **Tenant Administration > Standards > Templates**, synced and **unassigned** ("Template Tenant").
+4. Edit each template and assign the tenant or tenant group you want to measure, then run it (scheduled or manually) to produce alignment data.
+
+Synced standards templates arrive unassigned by design. Assign tenants locally after the first sync. If a later sync resets the assignment, reassign. No tenant data is stored in this public repo.
+
+Prefer a one-off manual import instead? Open a file under `StandardsTemplateV2/`, copy the value of its `JSON` field (the inner template), and paste it into **Standards > Add Standard > import JSON**.
 
 ### Read before you enforce
 
