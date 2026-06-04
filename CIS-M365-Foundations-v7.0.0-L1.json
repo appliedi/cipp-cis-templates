@@ -1,0 +1,702 @@
+{
+  "templateName": "CIS Microsoft 365 Foundations v7.0.0 - L1 (Report)",
+  "description": "<h2>CIS Microsoft 365 Foundations Benchmark v7.0.0 - Level 1</h2><p>Auto-mappable controls set to <b>Report + Alert</b> (non-enforcing). Conditional Access controls (5.2.2.x) and items needing tenant-specific input are documented in the companion files. Maintained by AppliedI.</p>",
+  "tenantFilter": [
+    {
+      "label": "Template Tenant",
+      "value": "Template Tenant"
+    }
+  ],
+  "standards": {
+    "DisableSharedMailbox": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "PasswordExpireDisabled": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "DisableSelfServiceLicenses": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "DisableSelfServiceLicenses": {
+          "DisableTrials": true
+        }
+      }
+    },
+    "FormsPhishingProtection": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "Bookings": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "MalwareFilterPolicy": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "OutBoundSpamAlert": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "RotateDKIM": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "AddDKIM": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "AddDMARCToMOERA": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "AddDMARCToMOERA": {
+          "RecordValue": "v=DMARC1; p=reject;"
+        }
+      }
+    },
+    "EmptyFilterIPAllowList": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "AntiSpamSafeList": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "AntiSpamSafeList": {
+          "EnableSafeList": false
+        }
+      }
+    },
+    "SpamFilterPolicy": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "EXOOutboundSpamLimits": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "EXOOutboundSpamLimits": {
+          "RecipientLimitExternalPerHour": 500,
+          "RecipientLimitInternalPerHour": 1000,
+          "RecipientLimitPerDay": 1000
+        }
+      }
+    },
+    "TeamsZAP": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "AuditLog": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "IntuneComplianceSettings": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "IntuneComplianceSettings": {
+          "secureByDefault": true,
+          "deviceComplianceCheckinThresholdDays": 30
+        }
+      }
+    },
+    "DefaultPlatformRestrictions": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "DefaultPlatformRestrictions": {
+          "personalWindowsBlocked": true,
+          "personaliOSBlocked": true,
+          "personalAndroidForWorkBlocked": true,
+          "personalMacOSBlocked": true,
+          "personalAndroidBlocked": true
+        }
+      }
+    },
+    "DisableAppCreation": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "DisableTenantCreation": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "intuneDeviceReg": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "intuneDeviceRegLocalAdmins": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "intuneDeviceRegLocalAdmins": {
+          "disableRegisteringUsers": true,
+          "enableGlobalAdmins": false
+        }
+      }
+    },
+    "laps": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "EnableAppConsentRequests": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "AppManagementPolicy": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "AppManagementPolicy": {
+          "passwordCredentialsMaxLifetime": 180,
+          "keyCredentialsMaxLifetime": 180
+        }
+      }
+    },
+    "DisableGuestDirectory": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "PWdisplayAppInformationRequiredState": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "CustomBannedPasswordList": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "DisableSMS": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "DisableVoice": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "AuthMethodsSettings": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "PWcompanionAppAllowedState": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "EnableMailboxAuditing": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "EXODisableAutoForwarding": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "SpoofWarn": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "EnableMailTips": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "EnableMailTips": {
+          "MailTipsLargeAudienceThreshold": 25
+        }
+      }
+    },
+    "DisableBasicAuthSMTP": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "DisableSharePointLegacyAuth": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "SPAzureB2B": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "sharingCapability": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "sharingCapability": {
+          "Level": "externalUserSharingOnly"
+        }
+      }
+    },
+    "DefaultSharingLink": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "SPExternalUserExpiration": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "SPExternalUserExpiration": {
+          "Days": "30"
+        }
+      }
+    },
+    "SPEmailAttestation": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "SPEmailAttestation": {
+          "Days": "30"
+        }
+      }
+    },
+    "TeamsEmailIntegration": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "TeamsEmailIntegration": {
+          "AllowEmailIntoChannel": false
+        }
+      }
+    },
+    "TeamsExternalAccessPolicy": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "TeamsExternalAccessPolicy": {
+          "EnableTeamsConsumerAccess": false,
+          "EnableFederationAccess": false
+        }
+      }
+    },
+    "TeamsExternalChatWithAnyone": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "TeamsExternalChatWithAnyone": {
+          "UseB2BInvitesToAddExternalUsers": false
+        }
+      }
+    },
+    "TeamsGlobalMeetingPolicy": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "TeamsGlobalMeetingPolicy": {
+          "AllowAnonymousUsersToJoinMeeting": false,
+          "AllowAnonymousUsersToStartMeeting": false,
+          "AllowParticipantGiveRequestControl": false,
+          "AllowPSTNUsersToBypassLobby": false,
+          "AllowExternalParticipantGiveRequestControl": false
+        }
+      }
+    },
+    "UserSubmissions": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ]
+    },
+    "TeamsMessagingPolicy": {
+      "action": [
+        {
+          "label": "Report",
+          "value": "Report"
+        },
+        {
+          "label": "Alert",
+          "value": "Alert"
+        }
+      ],
+      "standards": {
+        "TeamsMessagingPolicy": {
+          "AllowSecurityEndUserReporting": true
+        }
+      }
+    }
+  },
+  "runManually": true,
+  "excludedTenants": []
+}
+

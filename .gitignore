@@ -1,0 +1,11 @@
+# Never publish the CIS Benchmark document or any extracted copy of it
+*.pdf
+cis_*.txt
+cis_*.json
+*standards.json
+
+# Local / OS cruft
+.DS_Store
+Thumbs.db
+*.tmp
+~$*
