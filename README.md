@@ -21,7 +21,15 @@ Two importable CIPP standard templates, split by CIS profile **Level 1** and **L
 | `CIS-M365-Foundations-v7.0.0-Coverage-Map.md` / `.csv` | All 160 controls mapped to their CIPP standard and status |
 | `CIS-M365-Foundations-v7.0.0-Manual-Checklist.md` | The controls the templates do not cover, with where to handle each |
 
-The two template files live under `StandardsTemplateV2/` and are wrapped in CIPP's community-repository format (a `PartitionKey` of `StandardsTemplateV2` plus the template serialized into the `JSON` field). That folder name and wrapper are how CIPP recognizes them as Standards templates. Do not move them to the repo root or rename the folder, or CIPP will fail to classify them on sync.
+There is also a **BPA Report Builder** template under `ReportBuilderTemplate/`:
+
+| File | Contents |
+|---|---|
+| `ReportBuilderTemplate/CIS_Microsoft_365_Foundations_Report.json` | A report that runs CIPP's built-in CIS test library (128 controls) and shows Passed / Failed / Skipped per control, grouped by benchmark section |
+
+CIPP's built-in CIS **tests** currently track benchmark **v6.0.1**, so this report reflects 6.0.1 control coverage. It complements the v7.0.0 standards templates: the standards templates do drift reporting and alerting, the report builder produces a per-control pass/fail document. After syncing, find it under **Tenant Administration > Standards > BPA Report Builder** (Browse Report Template Catalog).
+
+The two standards template files live under `StandardsTemplateV2/` and are wrapped in CIPP's community-repository format (a `PartitionKey` of `StandardsTemplateV2` plus the template serialized into the `JSON` field). That folder name and wrapper are how CIPP recognizes them as Standards templates. Do not move them to the repo root or rename the folder, or CIPP will fail to classify them on sync.
 
 ### Coverage at a glance (160 controls)
 
