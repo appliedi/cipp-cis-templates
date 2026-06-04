@@ -1,8 +1,9 @@
-# Never publish the CIS Benchmark document or any extracted copy of it
+# Never publish the CIS Benchmark document or any extracted copy of it.
+# (Scoped filenames so they do not match the CIS_* template files, which on a
+# case-insensitive filesystem a pattern like cis_*.json would wrongly catch.)
 *.pdf
-cis_*.txt
-cis_*.json
-*standards.json
+CIS_Microsoft_365_Foundations_Benchmark*.txt
+cipp_standards.json
 
 # Local / OS cruft
 .DS_Store
