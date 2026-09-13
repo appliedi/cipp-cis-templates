@@ -1,5 +1,42 @@
 # Changelog
 
+## 2026-09-13, template values
+
+Every template was checked against the CIPP-API backend scripts that run each standard, not only
+against `standards.json`. Several standards were configured without values, so CIPP compared the
+tenant against nothing and they could never report compliant. The values chosen match what CIPP's
+own CIS v7.0.0 tests check.
+
+### L1, 51 to 48 standards
+
+- Filled in missing values for 11 standards: `SpamFilterPolicy`, `MalwareFilterPolicy`,
+  `EXOOutboundSpamLimits` (`BlockUser`), `intuneDeviceReg` (10 devices), `AuthMethodsSettings`,
+  `TeamsGlobalMeetingPolicy`, `TeamsMessagingPolicy`, `DefaultSharingLink` (`Direct`), `Bookings`
+  (Disabled, the only CIPP value that meets 1.3.9), `SpoofWarn` and `PWcompanionAppAllowedState`
+  (disabled).
+- Removed `OutBoundSpamAlert`, `CustomBannedPasswordList` and `UserSubmissions`. They only pass
+  with tenant-specific values. The manual checklist now lists them.
+
+### L2, 29 to 28 standards
+
+- Filled in missing values for 7 standards: `SafeLinksPolicy`, `SafeAttachmentPolicy` (Block),
+  `MalwareFilterPolicy`, `TeamsFederationConfiguration`, `TeamsGlobalMeetingPolicy`,
+  `BitLockerKeysForOwnedDevice` and `EXODirectSend`. `AntiPhishPolicy` now names CIPP's default
+  policy explicitly.
+- `TeamsFederationConfiguration` is set to `BlockAllExternal`, the only generic value that passes
+  8.2.1. Tenants that federate with partners should use an allow list in a local template instead.
+- Removed `sharingDomainRestriction`, which needs a domain list.
+- `TeamsGlobalMeetingPolicy` and `MalwareFilterPolicy` now carry identical values in L1 and L2, so
+  a tenant assigned both templates has a single target.
+
+### QIT M365 Baseline
+
+- `DefaultSharingLink` stored `Direct` as a plain string. The backend only reads `.value`, so it
+  discarded the string and audited `Internal`. The value is now stored as `{label, value}`.
+- `PWcompanionAppAllowedState` changed to `disabled`, matching CIS 5.2.3.10.
+- `AddDMARCToMOERA` is now stored in the format the backend reads. No change in behaviour, because
+  the backend's fallback was already `p=reject`.
+
 ## 2026-09-13
 
 Coverage map validated against CIPP's own `CIS M365 7.0.0 (x.y.z)` standard tags, which now exist on

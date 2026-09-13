@@ -16,8 +16,8 @@ Two importable CIPP standard templates, split by CIS profile **Level 1** and **L
 
 | File | Contents |
 |---|---|
-| `StandardsTemplateV2/CIS_Microsoft_365_Foundations_v7.0.0__L1_Report.json` | Level 1 standards template, 51 standards |
-| `StandardsTemplateV2/CIS_Microsoft_365_Foundations_v7.0.0__L2_Report.json` | Level 2 standards template, 29 standards |
+| `StandardsTemplateV2/CIS_Microsoft_365_Foundations_v7.0.0__L1_Report.json` | Level 1 standards template, 48 standards |
+| `StandardsTemplateV2/CIS_Microsoft_365_Foundations_v7.0.0__L2_Report.json` | Level 2 standards template, 28 standards |
 | `StandardsTemplateV2/QIT_M365_Baseline.json` | **QIT M365 Baseline**, 54 standards. The mandatory floor for every QIT-managed tenant. Forked from CIS L1 and retuned, see below |
 | `CIS-M365-Foundations-v7.0.0-Coverage-Map.md` / `.csv` | All 160 controls mapped to their CIPP standard and status |
 | `CIS-M365-Foundations-v7.0.0-Manual-Checklist.md` | The controls the templates do not cover, with where to handle each |

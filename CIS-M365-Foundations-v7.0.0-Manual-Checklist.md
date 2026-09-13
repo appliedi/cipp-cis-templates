@@ -14,6 +14,20 @@ Those 33 split three ways, and the difference matters. Only the last group is ge
 > Earlier versions of this file claimed 136 automated and listed 19 manual controls, which left
 > nine unaccounted for. The numbers above reconcile to 160. See CHANGELOG.md.
 
+## Per-tenant standards, not in the templates
+
+These four controls have a CIPP standard, but it only passes with values specific to each tenant.
+A synced template overwrites local edits on every sync, so the standards are left out of L1 and L2.
+CIPP's CIS report still tests all four controls. To enforce one, add its standard to a local,
+unsynced template for that tenant.
+
+| Control | Lvl | CIPP standard | Per-tenant input |
+|---|---|---|---|
+| 2.1.6 | L1 | `OutBoundSpamAlert` | Admin notification address, plus a BCC address for suspicious outbound mail |
+| 5.2.3.2 | L1 | `CustomBannedPasswordList` | Organisation-specific banned words: company name, brands, local terms. Needs Entra ID P1 |
+| 8.6.1 | L1 | `UserSubmissions` | Mailbox that receives user-reported messages. This standard accepts CIPP `%variables%` |
+| 7.2.6 | L2 | `sharingDomainRestriction` | Allowed or blocked domain list for SharePoint external sharing |
+
 ## A. Conditional Access controls - apply via a CA template
 
 Enforced through a CIPP Conditional Access template, not by hand. Build or import a CA template
