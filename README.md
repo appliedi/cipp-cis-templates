@@ -2,7 +2,7 @@
 
 CIS Benchmark templates and coverage mappings for [CIPP](https://cipp.app) (CyberDrain Improved Partner Portal), the multi-tenant Microsoft 365 management platform for MSPs.
 
-This repository maps a CIS Benchmark to CIPP's standards engine so you can **report and alert on CIS drift across every managed tenant**, then enforce when ready. It is maintained by AppliedI and shared in the spirit of the community templates from [CyberDrain](https://github.com/CyberDrain/CyberDrain-CIS-Templates).
+This repository maps a CIS Benchmark to CIPP's standards engine so you can **report and alert on CIS drift across every managed tenant**, then enforce when ready. It is maintained by QIT Solutions and shared in the spirit of the community templates from [CyberDrain](https://github.com/CyberDrain/CyberDrain-CIS-Templates).
 
 ## Available benchmarks
 
@@ -27,7 +27,7 @@ There is also a **BPA Report Builder** template under `ReportBuilderTemplate/`:
 | File | Contents |
 |---|---|
 | `ReportBuilderTemplate/CIS_Microsoft_365_Foundations_Report.json` | Runs CIPP's built-in CIS test library (128 tests, 127 of which match a v7.0.0 control) and shows Passed / Failed / Skipped per control, grouped by benchmark section |
-| `ReportBuilderTemplate/CISA_ScubaGear_Report_ExchangeOnline.json` | Runs CIPP's built-in CISA ScubaGear test library for Exchange Online (24 MS.EXO controls). Original AppliedI template referencing CISA's public-domain baseline |
+| `ReportBuilderTemplate/CISA_ScubaGear_Report_ExchangeOnline.json` | Runs CIPP's built-in CISA ScubaGear test library for Exchange Online (24 MS.EXO controls). Original QIT Solutions template referencing CISA's public-domain baseline |
 
 CIPP's built-in CIS **tests** currently track benchmark **v6.0.1**, so this report reflects 6.0.1 control coverage. It complements the v7.0.0 standards templates: the standards templates do drift reporting and alerting, the report builder produces a per-control pass/fail document. After syncing, find it under **Tenant Administration > Standards > BPA Report Builder** (Browse Report Template Catalog).
 

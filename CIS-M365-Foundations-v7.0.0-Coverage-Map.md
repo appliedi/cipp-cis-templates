@@ -1,6 +1,6 @@
 # CIS Microsoft 365 Foundations Benchmark v7.0.0 - CIPP Coverage Map
 
-Mapping of all 160 CIS v7.0.0 recommendations to CIPP standards. Built by AppliedI.
+Mapping of all 160 CIS v7.0.0 recommendations to CIPP standards. Built by QIT Solutions.
 
 Validated against CIPP's own `CIS M365 7.0.0` standard tags. Where this map and CIPP's tags
 disagreed, CIPP's tag wins. See CHANGELOG.md for the corrections made.
