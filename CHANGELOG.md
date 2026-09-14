@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-09-14, generated reports
+
+- Added five Report Builder templates: one technical report per QIT level (Baseline 192 checks,
+  Good 21, Better 49, Best 13) and a client-facing QIT M365 Security Summary. The checks are the
+  CIPP tests that CIPP links to each level's standards through `appliesToTest`. One
+  `ConditionalAccessTemplate` standard carries all 28 conditional access tests, so those are split
+  by level by hand. A test linked at two levels appears only at the lower one.
+- Removed `CIS_Microsoft_365_Foundations_Report.json` and `CISA_ScubaGear_Report_ExchangeOnline.json`.
+  CIPP's built-in CIS suite is now v7.0.0 with 148 tests. Ours had 128, and one of those
+  (`CIS_7_3_2`) no longer exists. CIPP's built-in CISA suite has the same 24 tests as ours. A sync
+  never deletes, so remove the old templates in CIPP by hand: **Tools > Report Builder >
+  Templates > Delete**.
+- The coverage map's `Report_Test` column and the manual checklist now measure against CIPP's CIS
+  suite: 148 of 160 controls are tested, and only the 12 Microsoft Fabric controls are manual.
+
 ## 2026-09-14, template GUIDs
 
 The L1 and L2 templates had their GUID only in the community-repo wrapper, not in the template
