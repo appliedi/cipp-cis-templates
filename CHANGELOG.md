@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-14, template GUIDs
+
+The L1 and L2 templates had their GUID only in the community-repo wrapper, not in the template
+JSON itself. CIPP resolves a single-template run by the GUID inside the template JSON, so **Run
+Template Now** matched nothing and logged `Template:  ()`. Both templates are set to run manually,
+so scheduled runs skip them as well. As a result, neither had ever run: their alignment scores were
+built from other templates' results for the same standards. Both now carry their GUID inside the
+template JSON, matching the Baseline and CyberDrain's templates.
+
 ## 2026-09-13, template values
 
 Every template was checked against the CIPP-API backend scripts that run each standard, not only
