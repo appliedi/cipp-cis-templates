@@ -22,16 +22,21 @@ Two importable CIPP standard templates, split by CIS profile **Level 1** and **L
 | `CIS-M365-Foundations-v7.0.0-Coverage-Map.md` / `.csv` | All 160 controls mapped to their CIPP standard and status |
 | `CIS-M365-Foundations-v7.0.0-Manual-Checklist.md` | The controls the templates do not cover, with where to handle each |
 
-There is also a **BPA Report Builder** template under `ReportBuilderTemplate/`:
+There are also five **Report Builder** templates under `ReportBuilderTemplate/`, one per QIT level plus a client summary:
 
 | File | Contents |
 |---|---|
-| `ReportBuilderTemplate/CIS_Microsoft_365_Foundations_Report.json` | Runs CIPP's built-in CIS test library (128 tests, 127 of which match a v7.0.0 control) and shows Passed / Failed / Skipped per control, grouped by benchmark section |
-| `ReportBuilderTemplate/CISA_ScubaGear_Report_ExchangeOnline.json` | Runs CIPP's built-in CISA ScubaGear test library for Exchange Online (24 MS.EXO controls). Original QIT Solutions template referencing CISA's public-domain baseline |
+| `ReportBuilderTemplate/QIT_M365_Baseline_Technical.json` | Every CIPP test linked to a QIT M365 Baseline standard (192 checks), grouped by area and ordered by risk |
+| `ReportBuilderTemplate/QIT_M365_Good_Technical.json` | The checks the Good level adds: conditional access and identity (21 checks) |
+| `ReportBuilderTemplate/QIT_M365_Better_Technical.json` | The checks Better adds: device trust and Defender for Office 365 (49 checks) |
+| `ReportBuilderTemplate/QIT_M365_Best_Technical.json` | The checks Best adds: risk-based access and tenant privacy (13 checks) |
+| `ReportBuilderTemplate/QIT_M365_Security_Summary.json` | A short summary for clients: 15 Baseline priority checks, then, for each further level, the Microsoft license it needs and four headline checks |
 
-CIPP's built-in CIS **tests** currently track benchmark **v6.0.1**, so this report reflects 6.0.1 control coverage. It complements the v7.0.0 standards templates: the standards templates do drift reporting and alerting, the report builder produces a per-control pass/fail document. After syncing, find it under **Tenant Administration > Standards > BPA Report Builder** (Browse Report Template Catalog).
+Each check is a CIPP test, chosen through the `appliesToTest` links in CIPP's `standards.json`, so every check shows the tenant's live Passed / Failed / Skipped result. A test linked at two levels appears only at the lower one. After syncing, open **Tools > Report Builder**, pick a template and a tenant, and download the PDF. QIT generates these files with its own tooling, so hand edits are overwritten when they are regenerated.
 
-The two standards template files live under `StandardsTemplateV2/` and are wrapped in CIPP's community-repository format (a `PartitionKey` of `StandardsTemplateV2` plus the template serialized into the `JSON` field). That folder name and wrapper are how CIPP recognizes them as Standards templates. Do not move them to the repo root or rename the folder, or CIPP will fail to classify them on sync.
+For a full CIS v7.0.0 audit, use CIPP's built-in CIS suite (148 tests), plus the manual checklist for the 12 controls it cannot test. That suite and CIPP's built-in CISA ScubaGear suite replace this repo's CIS and ScubaGear report templates, which were removed on 14 September 2026.
+
+The three standards template files live under `StandardsTemplateV2/` and are wrapped in CIPP's community-repository format (a `PartitionKey` of `StandardsTemplateV2` plus the template serialized into the `JSON` field). That folder name and wrapper are how CIPP recognizes them as Standards templates. Do not move them to the repo root or rename the folder, or CIPP will fail to classify them on sync.
 
 ### Coverage at a glance (160 controls)
 
@@ -39,10 +44,10 @@ The two standards template files live under `StandardsTemplateV2/` and are wrapp
 |---|---|---|
 | Mapped to a CIPP standard | 91 | The L1 / L2 template JSON |
 | Conditional Access control (5.2.2.x) | 17 | A CIPP Conditional Access template (see checklist) |
-| Manual - no CIPP automation | 30 | Manual checklist, section C |
-| No CIPP standard yet | 22 | Manual checklist, section C |
+| Manual - no CIPP automation | 30 | No standard. CIPP's CIS suite tests all 30 |
+| No CIPP standard yet | 22 | CIPP's CIS suite tests 10. The 12 Fabric controls are in the manual checklist, section C |
 
-About 57 percent of the benchmark maps to a ready CIPP standard, and 127 of 160 controls are covered by a Report Builder test. The remainder is either something CIPP cannot automate today (PIM, emergency access accounts, SSPR notifications, on-prem AD) or a newer v7.0.0 area without a CIPP standard yet, most notably the entire **Microsoft Fabric** section (9.1.x), DLP (3.2.x), and sensitivity labels (3.3.1).
+About 57 percent of the benchmark maps to a ready CIPP standard, and CIPP's built-in CIS suite tests 148 of the 160 controls. The 12 it cannot test are the entire **Microsoft Fabric** section (9.1.x).
 
 ## QIT M365 Baseline
 
@@ -69,9 +74,10 @@ against.
 - `DisableSMS` and `DisableVoice` stay in Report until passkey registration coverage is confirmed per tenant. Both must reach Remediate before **1 February 2027**, when Microsoft stops delivering text and voice codes.
 - Huntress ITDR is deliberately **not** included. CyberDrain's `Deploy Huntress ITDR` template ships `appids: "123"`, a placeholder that deploys nothing. Add the real application ID before relying on it.
 
-The Good, Better and Best tiers are **not** in this repo and cannot be. They depend on
-`ConditionalAccessTemplate`, which references a template GUID unique to a CIPP instance, so any
-committed copy imports broken. Build those locally and document the GUIDs.
+The Good, Better and Best **standards templates** are not in this repo and cannot be. They depend
+on `ConditionalAccessTemplate`, which references a template GUID unique to a CIPP instance, so any
+committed copy imports broken. Build those locally and document the GUIDs. Their **reports** are
+in this repo, because a report references CIPP test IDs, which are the same in every instance.
 
 
 ### How to use (CIPP Community Repository)
@@ -79,8 +85,8 @@ committed copy imports broken. Build those locally and document the GUIDs.
 This repo is built to be consumed as a CIPP Community Repository.
 
 1. In CIPP, open **Settings > Community Repositories** and add this repo (`appliedi/cipp-cis-templates`).
-2. Sync it. CIPP reads the `StandardsTemplateV2/` folder and imports both files as **Standards templates** (not Intune templates).
-3. The two templates appear under **Tenant Administration > Standards > Templates**, synced and **unassigned** ("Template Tenant").
+2. Sync it. CIPP reads the `StandardsTemplateV2/` folder and imports all three files as **Standards templates** (not Intune templates).
+3. The three templates appear under **Tenant Administration > Standards > Templates**, synced and **unassigned** ("Template Tenant").
 4. Edit each template and assign the tenant or tenant group you want to measure, then run it (scheduled or manually) to produce alignment data.
 
 Synced standards templates arrive unassigned by design. Assign tenants locally after the first sync. If a later sync resets the assignment, reassign. **Add a reassignment check to your sync runbook**: this repo version-controls template content, not deployment, and a sync can silently unassign a live template. No tenant data is stored in this public repo.
@@ -89,7 +95,7 @@ Prefer a one-off manual import instead? Open a file under `StandardsTemplateV2/`
 
 ### Read before you enforce
 
-1. **CIPP now tags v7.0.0 directly.** CIPP carries `CIS M365 7.0.0 (x.y.z)` tags on 100 standards, and this map has been validated against them. The 5.1.3 reordering flagged in earlier versions is resolved: `DisableSecurityGroupUsers` is 5.1.3.1 (L1), and 5.1.3.2 has no CIPP standard. CIPP's built-in CIS **tests** still track 6.0.1, which is why one test (7.3.2) has no v7.0.0 control.
+1. **CIPP now tags v7.0.0 directly.** CIPP carries `CIS M365 7.0.0 (x.y.z)` tags on 100 standards, and this map has been validated against them. The 5.1.3 reordering flagged in earlier versions is resolved: `DisableSecurityGroupUsers` is 5.1.3.1 (L1), and 5.1.3.2 has no CIPP standard. CIPP's built-in CIS **tests** moved to v7.0.0 on 5 June 2026 and cover 148 of the 160 controls.
 
 2. **Conditional Access controls are not in the JSON on purpose.** The 17 controls under 5.2.2 (MFA, legacy auth, sign-in risk and frequency, named locations, token protection, and so on) are enforced through a CIPP **Conditional Access template** that references a template GUID unique to your tenant. Embedding one would import broken. Build or import a CA template set, then add the `ConditionalAccessTemplate` standard pointing at it. CyberDrain ships baseline CA templates you can start from.
 

@@ -12,17 +12,15 @@ disagreed, CIPP's tag wins. See CHANGELOG.md for the corrections made.
 | Mapped (CIS-tagged) | 83 | L1 / L2 template JSON (Report + Alert) |
 | Mapped (untagged std) | 8 | L1 / L2 template JSON, no CIPP CIS tag |
 | Conditional Access template | 17 | Apply a CIPP Conditional Access template (see checklist) |
-| Manual - not automatable | 30 | Manual checklist, section B |
-| No CIPP standard yet | 22 | Manual checklist, section B |
+| Manual - not automatable | 30 | No standard. CIPP's CIS suite tests all 30 |
+| No CIPP standard yet | 22 | CIPP's CIS suite tests 10. The 12 Fabric controls are in the manual checklist, section C |
 | **Total** | **160** | |
 
 L1 controls: 114 | L2 controls: 46
 
-**Report Builder coverage:** 127 of 160 controls have a matching test in
-`CIS_Microsoft_365_Foundations_Report.json`. The `Report_Test` column shows which.
-Coverage by a standards template and coverage by a report test are different things:
-six controls are enforced by a standard but have no report test, so they appear in drift
-reporting and not in the report document.
+**Test coverage:** 148 of 160 controls have a test in CIPP's built-in CIS v7.0.0 suite
+(CIPP-API `Modules/CIPPTests/Public/Tests/CIS`). The `Report test` column shows which. The
+other 12 are the Microsoft Fabric controls (9.1.x), which CIPP cannot read.
 
 ## 1. Microsoft 365 admin center
 
@@ -68,7 +66,7 @@ reporting and not in the report document.
 | 2.4.2 | L1 | Ensure Priority accounts have 'Strict protection' presets applied | - | No CIPP standard yet | Yes |
 | 2.4.3 | L2 | Ensure Microsoft Defender for Cloud Apps is enabled and configured | - | Manual - not automatable | Yes |
 | 2.4.4 | L1 | Ensure Zero-hour auto purge for Microsoft Teams is on | `TeamsZAP` | Mapped (CIS-tagged) | Yes |
-| 2.4.5 | L1 | Ensure 'AIR' remediation is enabled | - | Manual - not automatable | No |
+| 2.4.5 | L1 | Ensure 'AIR' remediation is enabled | - | Manual - not automatable | Yes |
 
 ## 3. Microsoft Purview
 
@@ -77,7 +75,7 @@ reporting and not in the report document.
 | 3.1.1 | L1 | Ensure Microsoft 365 audit log search is Enabled | `AuditLog` | Mapped (CIS-tagged) | Yes |
 | 3.2.1 | L1 | Ensure DLP policies are enabled | - | No CIPP standard yet | Yes |
 | 3.2.2 | L1 | Ensure DLP policies are enabled for Microsoft Teams | - | No CIPP standard yet | Yes |
-| 3.2.3 | L1 | Ensure DLP policies are published for Copilot users | - | No CIPP standard yet | No |
+| 3.2.3 | L1 | Ensure DLP policies are published for Copilot users | - | No CIPP standard yet | Yes |
 | 3.3.1 | L1 | Ensure Information Protection sensitivity label policies are published | - | No CIPP standard yet | Yes |
 
 ## 4. Microsoft Intune admin center
@@ -99,8 +97,8 @@ reporting and not in the report document.
 | 5.1.2.6 | L2 | Ensure 'LinkedIn account connections' is disabled | - | Manual - not automatable | Yes |
 | 5.1.3.1 | L1 | Ensure users cannot create security groups | `DisableSecurityGroupUsers` | Mapped (CIS-tagged) | Yes |
 | 5.1.3.2 | L2 | Ensure that 'Restrict user ability to access groups features in My Groups' is set to 'Yes' | - | No CIPP standard yet | Yes |
-| 5.1.3.3 | L1 | Ensure that 'Owners can manage group membership requests in My Groups' is set to 'No' | - | Manual - not automatable | No |
-| 5.1.3.4 | L2 | Ensure that 'Users can create Microsoft 365 groups in Azure portals, API or PowerShell' is set to 'No' | `DisableM365GroupUsers` | Mapped (untagged std) | No |
+| 5.1.3.3 | L1 | Ensure that 'Owners can manage group membership requests in My Groups' is set to 'No' | - | Manual - not automatable | Yes |
+| 5.1.3.4 | L2 | Ensure that 'Users can create Microsoft 365 groups in Azure portals, API or PowerShell' is set to 'No' | `DisableM365GroupUsers` | Mapped (untagged std) | Yes |
 | 5.1.4.1 | L2 | Ensure the ability to join devices to Entra is restricted | `intuneRestrictUserDeviceJoin` | Mapped (CIS-tagged) | Yes |
 | 5.1.4.2 | L1 | Ensure the maximum number of devices per user is limited | `intuneDeviceReg` | Mapped (CIS-tagged) | Yes |
 | 5.1.4.3 | L1 | Ensure the GA role is not added as a local administrator during Entra join | `intuneDeviceRegLocalAdmins` | Mapped (CIS-tagged) | Yes |
@@ -109,10 +107,10 @@ reporting and not in the report document.
 | 5.1.4.6 | L2 | Ensure users are restricted from recovering BitLocker keys | `BitLockerKeysForOwnedDevice` | Mapped (CIS-tagged) | Yes |
 | 5.1.5.1 | L2 | Ensure user consent to apps accessing company data on their behalf is not allowed | `OauthConsent` | Mapped (CIS-tagged) | Yes |
 | 5.1.5.2 | L1 | Ensure the admin consent workflow is enabled | `EnableAppConsentRequests` | Mapped (CIS-tagged) | Yes |
-| 5.1.5.3 | L2 | Ensure password addition is blocked for applications | `AppManagementPolicy` | Mapped (untagged std) | No |
-| 5.1.5.4 | L1 | Ensure password lifetime for applications does not exceed 180 days | `AppManagementPolicy` | Mapped (untagged std) | No |
-| 5.1.5.5 | L1 | Ensure new application passwords are system-generated | `AppManagementPolicy` | Mapped (untagged std) | No |
-| 5.1.5.6 | L1 | Ensure maximum certificate lifetime for applications does not exceed 180 days | `AppManagementPolicy` | Mapped (untagged std) | No |
+| 5.1.5.3 | L2 | Ensure password addition is blocked for applications | `AppManagementPolicy` | Mapped (untagged std) | Yes |
+| 5.1.5.4 | L1 | Ensure password lifetime for applications does not exceed 180 days | `AppManagementPolicy` | Mapped (untagged std) | Yes |
+| 5.1.5.5 | L1 | Ensure new application passwords are system-generated | `AppManagementPolicy` | Mapped (untagged std) | Yes |
+| 5.1.5.6 | L1 | Ensure maximum certificate lifetime for applications does not exceed 180 days | `AppManagementPolicy` | Mapped (untagged std) | Yes |
 | 5.1.6.1 | L2 | Ensure that collaboration invitations are sent to allowed domains only | `CollaborationDomainRestriction` | Mapped (CIS-tagged) | Yes |
 | 5.1.6.2 | L1 | Ensure that guest user access is restricted | `DisableGuestDirectory` | Mapped (CIS-tagged) | Yes |
 | 5.1.6.3 | L2 | Ensure guest user invitations are limited | `GuestInvite` | Mapped (untagged std) | Yes |
@@ -129,11 +127,11 @@ reporting and not in the report document.
 | 5.2.2.10 | L1 | Ensure a managed device is required to register security information | `ConditionalAccessTemplate` | Conditional Access template | Yes |
 | 5.2.2.11 | L1 | Ensure sign-in frequency for Intune Enrollment is set to 'Every time' | `ConditionalAccessTemplate` | Conditional Access template | Yes |
 | 5.2.2.12 | L1 | Ensure the device code sign-in flow is blocked | `ConditionalAccessTemplate` | Conditional Access template | Yes |
-| 5.2.2.13 | L1 | Ensure that periodic reauthentication is required for all users | `ConditionalAccessTemplate` | Conditional Access template | No |
-| 5.2.2.14 | L2 | Ensure trusted 'named locations' are defined | `ConditionalAccessTemplate` | Conditional Access template | No |
-| 5.2.2.15 | L2 | Ensure exclusionary geographic access controls are utilized | `ConditionalAccessTemplate` | Conditional Access template | No |
-| 5.2.2.16 | L2 | Ensure Token Protection is enforced for session tokens | `ConditionalAccessTemplate` | Conditional Access template | No |
-| 5.2.2.17 | L1 | Ensure authentication transfer is blocked | `ConditionalAccessTemplate` | Conditional Access template | No |
+| 5.2.2.13 | L1 | Ensure that periodic reauthentication is required for all users | `ConditionalAccessTemplate` | Conditional Access template | Yes |
+| 5.2.2.14 | L2 | Ensure trusted 'named locations' are defined | `ConditionalAccessTemplate` | Conditional Access template | Yes |
+| 5.2.2.15 | L2 | Ensure exclusionary geographic access controls are utilized | `ConditionalAccessTemplate` | Conditional Access template | Yes |
+| 5.2.2.16 | L2 | Ensure Token Protection is enforced for session tokens | `ConditionalAccessTemplate` | Conditional Access template | Yes |
+| 5.2.2.17 | L1 | Ensure authentication transfer is blocked | `ConditionalAccessTemplate` | Conditional Access template | Yes |
 | 5.2.3.1 | L1 | Ensure Microsoft Authenticator is configured to protect against MFA fatigue | `PWdisplayAppInformationRequiredState` | Mapped (CIS-tagged) | Yes |
 | 5.2.3.2 | L1 | Ensure custom banned passwords lists are used | `CustomBannedPasswordList` | Mapped (CIS-tagged) | Yes |
 | 5.2.3.3 | L1 | Ensure password protection is enabled for on-prem Active Directory | - | Manual - not automatable | Yes |
@@ -141,14 +139,14 @@ reporting and not in the report document.
 | 5.2.3.5 | L1 | Ensure weak authentication methods are disabled | `DisableSMS; DisableVoice` | Mapped (CIS-tagged) | Yes |
 | 5.2.3.6 | L1 | Ensure system-preferred multifactor authentication is enabled | `AuthMethodsSettings` | Mapped (CIS-tagged) | Yes |
 | 5.2.3.7 | L2 | Ensure the email OTP authentication method is disabled | `DisableEmail` | Mapped (CIS-tagged) | Yes |
-| 5.2.3.8 | L1 | Ensure that Account 'Lockout threshold' is '10' or less | `SmartLockout` | Mapped (CIS-tagged) | No |
-| 5.2.3.9 | L1 | Ensure that Account 'Lockout duration in seconds' is at least 60 seconds | `SmartLockout` | Mapped (CIS-tagged) | No |
-| 5.2.3.10 | L1 | Ensure Microsoft Authenticator on companion applications is disabled | `PWcompanionAppAllowedState` | Mapped (untagged std) | No |
+| 5.2.3.8 | L1 | Ensure that Account 'Lockout threshold' is '10' or less | `SmartLockout` | Mapped (CIS-tagged) | Yes |
+| 5.2.3.9 | L1 | Ensure that Account 'Lockout duration in seconds' is at least 60 seconds | `SmartLockout` | Mapped (CIS-tagged) | Yes |
+| 5.2.3.10 | L1 | Ensure Microsoft Authenticator on companion applications is disabled | `PWcompanionAppAllowedState` | Mapped (untagged std) | Yes |
 | 5.2.4.1 | L1 | Ensure 'Self service password reset enabled' is set to 'All' | - | Manual - not automatable | Yes |
-| 5.2.4.2 | L2 | Ensure that 2 methods are required for password reset | - | Manual - not automatable | No |
-| 5.2.4.3 | L1 | Ensure SSPR registration and authentication re-confirmation are required | - | Manual - not automatable | No |
-| 5.2.4.4 | L1 | Ensure that users are notified on password resets | - | Manual - not automatable | No |
-| 5.2.4.5 | L1 | Ensure all admins are notified when other admins reset their password | - | Manual - not automatable | No |
+| 5.2.4.2 | L2 | Ensure that 2 methods are required for password reset | - | Manual - not automatable | Yes |
+| 5.2.4.3 | L1 | Ensure SSPR registration and authentication re-confirmation are required | - | Manual - not automatable | Yes |
+| 5.2.4.4 | L1 | Ensure that users are notified on password resets | - | Manual - not automatable | Yes |
+| 5.2.4.5 | L1 | Ensure all admins are notified when other admins reset their password | - | Manual - not automatable | Yes |
 | 5.3.1 | L2 | Ensure privileged role assignments are activated and not assigned | - | Manual - not automatable | Yes |
 | 5.3.2 | L1 | Ensure 'Access reviews' for guest users are configured | - | Manual - not automatable | Yes |
 | 5.3.3 | L1 | Ensure 'Access reviews' for privileged roles are configured | - | Manual - not automatable | Yes |
@@ -166,7 +164,7 @@ reporting and not in the report document.
 | 6.2.2 | L1 | Ensure mail transport rules do not whitelist specific domains | - | Manual - not automatable | Yes |
 | 6.2.3 | L1 | Ensure email from external senders is identified | `SpoofWarn` | Mapped (CIS-tagged) | Yes |
 | 6.3.1 | L2 | Ensure users installing Outlook add-ins is not allowed | `DisableOutlookAddins` | Mapped (CIS-tagged) | Yes |
-| 6.3.2 | L1 | Ensure the ability to add personal email accounts and calendars is disabled | - | Manual - not automatable | No |
+| 6.3.2 | L1 | Ensure the ability to add personal email accounts and calendars is disabled | - | Manual - not automatable | Yes |
 | 6.5.1 | L1 | Ensure modern authentication for Exchange Online is enabled | - | Manual - not automatable | Yes |
 | 6.5.2 | L1 | Ensure MailTips are enabled for end users | `EnableMailTips` | Mapped (CIS-tagged) | Yes |
 | 6.5.3 | L2 | Ensure additional storage providers are restricted in Outlook on the web | `DisableAdditionalStorageProviders` | Mapped (CIS-tagged) | Yes |
