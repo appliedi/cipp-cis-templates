@@ -34,6 +34,24 @@ There are also five **Report Builder** templates under `ReportBuilderTemplate/`,
 
 Each check is a CIPP test, chosen through the `appliesToTest` links in CIPP's `standards.json`, so every check shows the tenant's live Passed / Failed / Skipped result. A test linked at two levels appears only at the lower one. After syncing, open **Tools > Report Builder**, pick a template and a tenant, and download the PDF. QIT generates these files with its own tooling, so hand edits are overwritten when they are regenerated.
 
+There are also four **technician runbooks** under `Runbooks/`, one per QIT level, covering the same checks as that level's technical report:
+
+| File | Checks |
+|---|---|
+| `Runbooks/QIT_M365_Baseline_Runbook.md` | 192 |
+| `Runbooks/QIT_M365_Good_Runbook.md` | 21 |
+| `Runbooks/QIT_M365_Better_Runbook.md` | 49 |
+| `Runbooks/QIT_M365_Best_Runbook.md` | 13 |
+
+Each entry gives:
+
+- the check's risk, the effort to fix it and its impact on users
+- the CIPP standards linked to it, with CIPP's impact ratings, corrected where QIT found CIPP's link wrong
+- QIT's notes on checks that fail by design or need care before enforcing
+- reference links
+
+For CIPP's full description and manual steps, each entry points to the test on the CIPP Dashboard. The Dashboard suites the runbooks name (QIT M365 Baseline and the others) are custom suites in QIT's own CIPP. Elsewhere, use the CIPP built-in suite each entry names. The runbooks contain no text from CIPP's test descriptions. They are generated like the reports, so hand edits are overwritten. For a Word copy, run `pandoc Runbooks/QIT_M365_Baseline_Runbook.md -o QIT_M365_Baseline_Runbook.docx`.
+
 For a full CIS v7.0.0 audit, use CIPP's built-in CIS suite (148 tests), plus the manual checklist for the 12 controls it cannot test. That suite and CIPP's built-in CISA ScubaGear suite replace this repo's CIS and ScubaGear report templates, which were removed on 14 September 2026.
 
 The three standards template files live under `StandardsTemplateV2/` and are wrapped in CIPP's community-repository format (a `PartitionKey` of `StandardsTemplateV2` plus the template serialized into the `JSON` field). That folder name and wrapper are how CIPP recognizes them as Standards templates. Do not move them to the repo root or rename the folder, or CIPP will fail to classify them on sync.
