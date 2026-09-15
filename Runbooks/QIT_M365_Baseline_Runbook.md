@@ -878,9 +878,9 @@ Risk: High · Effort: Low · User impact: Medium
 
 **Fix with CIPP:** no standard at this level fixes it.
 
-**Elsewhere in CIPP:** `SafeAttachmentPolicy` (Default Safe Attachment Policy, Low Impact, QIT M365 Better).
+**Elsewhere in CIPP:** `SafeAttachmentPolicy` (Default Safe Attachment Policy, Low Impact, QIT M365 Protected).
 
-**QIT note:** CIPP's link corrected: The check reads the Safe Attachments action (Block or Quarantine), set by SafeAttachmentPolicy at Better with Defender for Office 365. The malware filter doesn't affect it.
+**QIT note:** CIPP's link corrected: The check reads the Safe Attachments action (Block or Quarantine), set by SafeAttachmentPolicy at Protected with Defender for Office 365. The malware filter doesn't affect it.
 
 **Links:** [Microsoft Learn: safe attachments about](https://learn.microsoft.com/microsoft-365/security/office-365-security/safe-attachments-about) · [Microsoft Learn: safe attachments policies configure](https://learn.microsoft.com/microsoft-365/security/office-365-security/safe-attachments-policies-configure) · [Microsoft Learn: recommended settings for eop and office365](https://learn.microsoft.com/microsoft-365/security/office-365-security/recommended-settings-for-eop-and-office365)
 
@@ -1300,9 +1300,9 @@ Risk: Medium · Effort: Low · User impact: Low
 
 **Fix with CIPP:** no standard at this level fixes it.
 
-**Elsewhere in CIPP:** `AtpPolicyForO365` (Default Atp Policy For O365, Low Impact, QIT M365 Better).
+**Elsewhere in CIPP:** `AtpPolicyForO365` (Default Atp Policy For O365, Low Impact, QIT M365 Protected).
 
-**QIT note:** CIPP's link corrected: The check reads whether users can click through Safe Documents, a setting of AtpPolicyForO365 at Better. The anti-phishing policy doesn't hold it.
+**QIT note:** CIPP's link corrected: The check reads whether users can click through Safe Documents, a setting of AtpPolicyForO365 at Protected. The anti-phishing policy doesn't hold it.
 
 **Links:** [Microsoft Learn: safe documents in e5 plus security about](https://learn.microsoft.com/microsoft-365/security/office-365-security/safe-documents-in-e5-plus-security-about) · [Microsoft Learn: safe documents in e5 plus security about (use the microsoft 365 defender portal to configure safe documents)](https://learn.microsoft.com/microsoft-365/security/office-365-security/safe-documents-in-e5-plus-security-about#use-the-microsoft-365-defender-portal-to-configure-safe-documents)
 

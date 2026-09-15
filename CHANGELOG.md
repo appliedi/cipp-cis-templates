@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-15, level names
+
+- Renamed the three upper levels. Good is now Managed, Better is now Protected, and Best is now
+  Governed. Baseline is unchanged. The new names describe what each level adds: managed
+  identity, device trust, and governed identity and data.
+- Renamed the technical reports and runbooks to match, for example
+  `QIT_M365_Managed_Technical.json` and `QIT_M365_Managed_Runbook.md`. The reports keep their
+  GUIDs, so a sync updates each report in CIPP rather than adding a copy.
+- The checks are unchanged: Baseline 192, Managed 21, Protected 49, Governed 13.
+
 ## 2026-09-15, technician runbooks
 
 - Added four technician runbooks under `Runbooks/`, one per QIT level (Baseline 192 checks, Good

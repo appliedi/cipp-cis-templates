@@ -27,9 +27,9 @@ There are also five **Report Builder** templates under `ReportBuilderTemplate/`,
 | File | Contents |
 |---|---|
 | `ReportBuilderTemplate/QIT_M365_Baseline_Technical.json` | Every CIPP test linked to a QIT M365 Baseline standard (192 checks), grouped by area and ordered by risk |
-| `ReportBuilderTemplate/QIT_M365_Good_Technical.json` | The checks the Good level adds: conditional access and identity (21 checks) |
-| `ReportBuilderTemplate/QIT_M365_Better_Technical.json` | The checks Better adds: device trust and Defender for Office 365 (49 checks) |
-| `ReportBuilderTemplate/QIT_M365_Best_Technical.json` | The checks Best adds: risk-based access and tenant privacy (13 checks) |
+| `ReportBuilderTemplate/QIT_M365_Managed_Technical.json` | The checks the Managed level adds: conditional access and identity (21 checks) |
+| `ReportBuilderTemplate/QIT_M365_Protected_Technical.json` | The checks Protected adds: device trust and Defender for Office 365 (49 checks) |
+| `ReportBuilderTemplate/QIT_M365_Governed_Technical.json` | The checks Governed adds: risk-based access and tenant privacy (13 checks) |
 | `ReportBuilderTemplate/QIT_M365_Security_Summary.json` | A short summary for clients: 15 Baseline priority checks, then, for each further level, the Microsoft license it needs and four headline checks |
 
 Each check is a CIPP test, chosen through the `appliesToTest` links in CIPP's `standards.json`, so every check shows the tenant's live Passed / Failed / Skipped result. A test linked at two levels appears only at the lower one. After syncing, open **Tools > Report Builder**, pick a template and a tenant, and download the PDF. QIT generates these files with its own tooling, so hand edits are overwritten when they are regenerated.
@@ -39,9 +39,9 @@ There are also four **technician runbooks** under `Runbooks/`, one per QIT level
 | File | Checks |
 |---|---|
 | `Runbooks/QIT_M365_Baseline_Runbook.md` | 192 |
-| `Runbooks/QIT_M365_Good_Runbook.md` | 21 |
-| `Runbooks/QIT_M365_Better_Runbook.md` | 49 |
-| `Runbooks/QIT_M365_Best_Runbook.md` | 13 |
+| `Runbooks/QIT_M365_Managed_Runbook.md` | 21 |
+| `Runbooks/QIT_M365_Protected_Runbook.md` | 49 |
+| `Runbooks/QIT_M365_Governed_Runbook.md` | 13 |
 
 Each entry gives:
 
@@ -92,7 +92,7 @@ against.
 - `DisableSMS` and `DisableVoice` stay in Report until passkey registration coverage is confirmed per tenant. Both must reach Remediate before **1 February 2027**, when Microsoft stops delivering text and voice codes.
 - Huntress ITDR is deliberately **not** included. CyberDrain's `Deploy Huntress ITDR` template ships `appids: "123"`, a placeholder that deploys nothing. Add the real application ID before relying on it.
 
-The Good, Better and Best **standards templates** are not in this repo and cannot be. They depend
+The Managed, Protected and Governed **standards templates** are not in this repo and cannot be. They depend
 on `ConditionalAccessTemplate`, which references a template GUID unique to a CIPP instance, so any
 committed copy imports broken. Build those locally and document the GUIDs. Their **reports** are
 in this repo, because a report references CIPP test IDs, which are the same in every instance.
