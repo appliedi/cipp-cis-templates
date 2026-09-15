@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-15, technician runbooks
+
+- Added four technician runbooks under `Runbooks/`, one per QIT level (Baseline 192 checks, Good
+  21, Better 49, Best 13), with the same checks as the technical reports. Each check names the
+  CIPP standards linked to it and CIPP's impact rating, corrected where QIT found CIPP's link
+  wrong, carries QIT's notes where they apply, and links to Microsoft Learn and CIS references.
+- Three Baseline checks fail by design and are listed first in the Baseline runbook:
+  `CIS_7_2_9` (guest access expires after 90 days, not 30), `CIS_8_2_1` (Teams federation stays
+  open) and `CIS_8_5_1` (anonymous users can join meetings through the lobby).
+- The runbooks point to CIPP's test descriptions but copy none of their text.
+
 ## 2026-09-14, generated reports
 
 - Added five Report Builder templates: one technical report per QIT level (Baseline 192 checks,
